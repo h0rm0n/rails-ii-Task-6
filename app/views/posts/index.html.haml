@@ -1,0 +1,6 @@
+-@posts.each do |p|
+   %p= link_to p.title, posts_path + "/" + p.id.to_s
+   %p= p.description
+
+%p
+   %b= link_to "Dodaj posta", posts_path + "/new"

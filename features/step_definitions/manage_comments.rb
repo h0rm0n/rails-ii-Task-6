@@ -1,0 +1,15 @@
+Then /^I should find "([^"]*)" "([^"]*)" post$/ do |p_title, p_description|
+  @post = Post.find(:first, :conditions=>{:title=>p_title, :description=>p_description})
+  assert_not_nil(@post)
+end
+
+When /^I go to post page$/ do
+   visit post_path(@post)
+end
+
+Then /^I added "([^"]*)" "([^"]*)" comment$/ do |p_nick, p_description|
+  fill_in('comment_nick', :with => p_nick)
+  fill_in('comment_description', :with => p_description)
+  click_button('Dodaj')
+end
+

@@ -1,0 +1,19 @@
+Feature: Manage comments
+  In order to increase revenue!
+  A comment
+  Should manage comments
+
+  Scenario: Add comment
+    Given I saw list of all posts
+
+    Then I visited post new page
+    Then I added "test tytulu" "test tresci" post
+
+    When I go to the list of all posts
+    Then I should see "test tytulu" "test tresci"
+    Then I should find "test tytulu" "test tresci" post
+
+    When I go to post page
+    Then I added "test nick" "test komentarz" comment
+    Then I should see "test nick" "test komentarz"
+

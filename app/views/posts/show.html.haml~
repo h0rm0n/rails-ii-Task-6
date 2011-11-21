@@ -1,0 +1,28 @@
+%p
+   %b= @post.title
+%p
+   = @post.description
+
+%hr
+
+%p= "Komentuj:"
+
+= form_for [@post, @post.comments.new] do |c|
+   %p
+      = c.label :nick, "Ksywka"
+      %br= c.text_field :nick
+   %p
+      = c.label :description, "Treść"
+      %br= c.text_area :description
+
+      %br= c.submit "Dodaj"
+
+%hr
+
+%p= "Komentarze:"
+
+- @post.comments.each do |c|
+   %p= c.nick
+   %p= c.description
+         
+
